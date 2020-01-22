@@ -1,0 +1,84 @@
+<body>
+  <div data-role="page" data-theme={{theme}}>
+    <form action="/save_addepg" method="post">
+
+      <div data-role="header" style="overflow:hidden;" data-theme={{theme}}>
+        <h1>Add an End-Point-Group</h1>
+
+        <button type="submit" name="close" value="close"
+          class="ui-shadow ui-icon-delete ui-btn-icon-left ui-btn ui-btn-left ui-corner-all ui-mini" formnovalidate>Cancel/Close</button>
+        <button type="submit" name="save" value="save"
+          class="ui-shadow ui-icon-check ui-btn-icon-right ui-btn ui-btn-right ui-corner-all ui-mini">Save</button>
+
+        <div data-role="navbar" data-theme={{theme}}>
+
+        </div><!-- /navbar -->
+      </div><!-- /header -->
+
+      <div data-role="content" data-theme={{theme}}>
+
+        <label for="datacenter">Select a Data Center:</label>
+        <select name="datacenter" id="datacenter">
+          <option>Global (global)</option>
+          <option>Rediness Center Carver (rcc)</option>
+          <option>World Trade Center (wtc)</option>
+        </select>
+
+        <label for="tenant">Tenant:</label>
+        <select name="tenant" id="tenant">
+          <option>DMZ/Internet (dmz)</option>
+          <option>Enterprise (ent)</option>
+        </select>
+
+        <label for="apppro">Select an Application Profile:</label>
+        <select name="apppro" id="apppro">
+          <option>Development (dev)</option>
+          <option>Production MAC 1 (prod-m1)</option>
+          <option>Production MAC 2 (prod-m2)</option>
+          <option>Production MAC 3 (prod-m3)</option>
+          <option>Resources (res)</option>
+          <option>Test MAC 1 (test-m1)</option>
+          <option>Test MAC 2 (test-m2)</option>
+          <option>Test MAC 3 (test-m3)</option>
+        </select>
+
+        <label for="epgname">New EPG Name (example: 10.20.30):</label>
+        <textarea name="epgname" id="epgname"></textarea>
+
+        <label for="description">Description:</label>
+        <textarea name="description" id="description"></textarea>
+
+        <label for="bridge_domain">Associate new Bridge Domain (named after the EPG):
+          <input type="checkbox" data-role="flipswitch" name="bridge_domain" id="bridge_domain" data-on-text="Yes"
+            data-off-text="No" data-wrapper-class="custom-size-flipswitch" checked="">
+        </label>
+        <label for="default_gateway">Add default gateway (.254):
+          <input type="checkbox" data-role="flipswitch" name="default_gateway" id="default_gateway" data-on-text="Yes"
+            data-off-text="No" data-wrapper-class="custom-size-flipswitch" checked="">
+        </label>
+        <label for="legacy_vlan">Legacy VLAN Number (example: 2395):</label>
+        <textarea name="legacy_vlan" id="legacy_vlan"></textarea>
+
+        <label for="netapp_storage">Associate EPG with NetApp Storage:
+          <input type="checkbox" data-role="flipswitch" name="netapp_storage" id="netapp_storage" data-on-text="Yes"
+            data-off-text="No" data-wrapper-class="custom-size-flipswitch" checked="">
+        </label>
+        <fieldset>
+          <legend>Associated VMware Environments: </legend>
+          <label for="RCC_ACI">RCC_ACI</label>
+          <input type="checkbox" name="RCC_ACI" id="RCC_ACI">
+          <label for="RCC_VXBLOCK_ACI">RCC_VXBLOCK_ACI</label>
+          <input type="checkbox" name="RCC_VXBLOCK_ACI" id="RCC_VXBLOCK_ACI">
+          <label for="WTC_ACI">WTC_ACI</label>
+          <input type="checkbox" name="WTC_ACI" id="WTC_ACI">
+          <label for="WTC_VXBLOCK_ACI">WTC_VXBLOCK_ACI</label>
+          <input type="checkbox" name="WTC_VXBLOCK_ACI" id="WTC_VXBLOCK_ACI">
+        </fieldset>
+        {{ cred }}
+      </div><!-- /page -->
+    </form>
+
+
+
+
+</body>

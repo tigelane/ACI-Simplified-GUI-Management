@@ -1,0 +1,55 @@
+<body>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+
+</script>
+<div class="container" >
+    <h2 class="ReportTitle">Your Search Results (Endpoint)</h2>
+    <h3 class="ReportTitle">Query: "{{ text }}"</h3>
+    <FORM value="form" action="search_host_detail" method="post">
+        <table id="example" class="display" class="BottomTable">
+            <thead>
+            <tr>
+                <center>
+                    <th class="text-center">MAC</th>
+                    <th class="text-center">IP Address</th>
+                    <th class="text-center">If Name</th>
+                    <th class="text-center">Encap</th>
+                    <th class="text-center">Tenant</th>
+                    <th class="text-center">Application<br>Profile</th>
+                    <th class="text-center">EPG</th>
+                    <th class="text-center">See<br>Contracts</th>
+                    <th class="text-center">Clear<br>Endpoint</th>
+            </tr>
+            </center>
+            </thead>
+
+
+            {% for record in records %}
+            <tr>
+                <td class="text-center">{{ record[0] }}</td>
+                <td class="text-center">{{ record[1] }}</td>
+                <td class="text-center">
+                    <a href="#" data-toggle="tooltip" title="{{ record[2] }}">Hover</a>
+                </td>
+
+
+                <td class="text-center">{{ record[3] }}</td>
+                <td class="text-center">{{ record[4] }}</td>
+                <td class="text-center">{{ record[5] }}</td>
+                <td class="text-center">{{ record[6] }}</td>
+                <td class="text-center"><INPUT type="radio" name="epg"
+                                          value='{{ record[4] }},{{ record[5] }},{{ record[6] }},{{ record[1] }},contract'>
+                </td>
+                <td class="text-center"><INPUT type="radio" name="epg"
+                                          value='{{ record[4] }},{{ record[5] }},{{ record[6] }},{{ record[1] }},clear'>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <button class="btn btn-lg btn-block btn-primary" type="submit">Submit</button><br><button class="btn btn-lg btn-block" type="reset">Reset</button>
+    </FORM>
+</div>

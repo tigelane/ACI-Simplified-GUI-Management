@@ -1,0 +1,55 @@
+
+<body>
+
+<div data-role="page" data-theme={{theme}}>
+
+<form action="/save_adducs" method="post">
+<input type="hidden" name="epgnum" value="0" />
+
+<div data-role="header" style="overflow:hidden;" data-theme={{theme}}>
+    <h1>Add a UCS Cluster</h1>
+
+    <button type="submit" name="close" value= "close" class="ui-shadow ui-icon-delete ui-btn-icon-left ui-btn ui-btn-left ui-corner-all ui-mini">Cancel/Close</button>
+    <button type="submit" name="save" value="save" class="ui-shadow ui-icon-check ui-btn-icon-right ui-btn ui-btn-right ui-corner-all ui-mini">Save</button>
+
+    <div data-role="navbar" data-theme={{theme}}>
+
+    </div><!-- /navbar -->
+</div><!-- /header -->
+
+<div data-role="content" data-theme={{theme}}>
+
+    <label for="datacenter">Select a Data Center:</label>
+    <select name="datacenter" id="datacenter">
+      <option>World Trade Center (wtc)</option>
+      <option>Rediness Center Carver (rcc)</option>
+    </select>
+
+    <label for="newname">New UCS Cluster Name:</label>
+    <textarea name="newname" id="newname"></textarea>
+
+    <label for="description">Description:</label>
+    <textarea name="description" id="description"></textarea>
+
+    <label for="leafpair">Attach to leaf pair:</label>
+    <select name="leafpair" id="leafpair">
+        {% for record in form_data["leafs"] %}
+        <option>Leafs {{ record }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="port">Attach to port pair (same port on both leafs):</label>
+    <select name="port" id="port">
+        {% for record in form_data["ports"] %}
+        <option>Port {{ record }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="vpc">Connect with vPC:</label>
+    <input type="checkbox" data-role="flipswitch" name="vpc" id="vpc" data-on-text="Yes" data-off-text="No" data-wrapper-class="custom-size-flipswitch" checked="">
+
+
+</form>
+
+</div><!-- /page -->
+</body>

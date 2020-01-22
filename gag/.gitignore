@@ -1,0 +1,8 @@
+mysql
+scratchpad
+old_templates
+.DS_Store
+.coverage
+.devcontainer
+__pycache__/
+.dockerignore

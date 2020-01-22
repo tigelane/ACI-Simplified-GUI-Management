@@ -1,0 +1,21 @@
+<body>
+    <!-- Apply the theme from the themeroller to the page -->
+    <div data-role="page" data-theme={{theme}}>
+        <div data-role="header" style="overflow:hidden;" data-theme={{theme}}>
+            <h1>{{page_header}}</h1>
+            <!--- <a href="/enter_key" data-icon="gear" class="ui-btn-right" data-rel="dialog" data-transition="slidedown">Options</a> -->
+            <div data-role="navbar" data-theme={{theme}}>
+                <ul>
+                    <li><a href="addepg" data-transition="slidedown">Add End-Point-Group</a></li>
+                    <!-- <li><a href="adducs" data-transition="slidedown">Add UCS Cluster</a></li> -->
+                    <li><a href="addvxrail" data-transition="slidedown">Add VXRail Server</a></li>
+                    <li><a href="search_server" data-transition="slidedown">Find a Server or VM</a></li>
+                    <li><a href="/" data-transition="slidedown">Not implemented</a></li>
+                </ul>
+            </div><!-- /navbar -->
+        </div><!-- /header -->
+
+
+        <div data-role="content" data-theme={{theme}}>
+        </div><!-- /content -->
+    {{ message }} 

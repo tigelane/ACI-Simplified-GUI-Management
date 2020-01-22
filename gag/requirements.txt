@@ -1,0 +1,10 @@
+setuptools
+flask
+requests
+pyyaml
+pytest
+pytest-cov
+flake8
+lxml
+# Flask-LDAP  # Not sure if required yet, maybe for LDAP integration
+# https://stackoverflow.com/questions/41684463/flask-active-directory-authentication

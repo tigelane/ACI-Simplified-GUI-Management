@@ -1,0 +1,30 @@
+
+
+    <center>
+    <h2 class="ReportTitle">Search for a Server attached to ACI</h2>
+    <h3 class="ReportTitle">You can search for anything in the following example:</h3>
+    <!--<div class="col-xs-6 col-md-offset-3" >-->
+    <pre>
+    MACADDRESS          IPADDRESS         INTERFACE       ENCAP       TENANT     APP PROFILE        EPG
+    -----------------   ---------------   --------------  ---------   ------     ---------------    ---
+    00:50:56:15:7C:44   172.6.101.12      eth 1/101/1/4   vlan-2120   common     Simple_Two-Tier    WWW
+    </pre></center>
+        <div class="container">
+<div class="col-md-3 col-md-offset-3">
+
+
+        <h3 class="ReportTitle">Select Tenant:</h3>
+    <form value="form" action="search_server" method="post">
+
+            <INPUT type="radio" name="tenant_name" value="all" checked="checked"> All <br>
+        {% for tenant in tenants %}
+            <INPUT type="radio" name="tenant_name" value="{{ tenant }}"> {{ tenant }} <br>
+        {% endfor %}
+        </div>
+        <div class="col-md-3 col-md-offset-0" >
+        <h3 class="ReportTitle">Search:</h3>
+        <input type="text" name="text" class="form-control input-lg" placeholder="Endpoint" autofocus><br>
+        <button class="btn btn-lg btn-block btn-primary" type="submit">Submit</button><br><button class="btn btn-lg btn-block" type="reset">Reset</button>
+
+    </form>        </div>
+

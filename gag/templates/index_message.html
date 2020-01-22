@@ -1,0 +1,27 @@
+{% if success == true %}
+
+<div style="text-align:center;">
+    <h1 style="color:green">SUCCESS!!</h1>
+    Navigate to the folling URL to review the config file and raise a Pull Request<br>
+    <a href="{{ url }}" target="_blank">{{ url }}</a>
+
+    <h2>Additional Information</h2> 
+    {{ message }}
+</div>
+{% elif success == false %}
+<div style="text-align:center;">
+    <h1 style="color:red">Failure!!</h1>
+    The config changes did not get pushed to source control.
+
+    <h2>Additional Information</h2> 
+    {{ message }}
+</div>
+{% else %}
+<div style="text-align:center;">
+    <h1 style="color:orange">Error!!</h1>
+    An error occured, see below for any additional information that may be available
+
+    <h2>Additional Information</h2> 
+    {{ message }}
+</div>
+{% endif %}
