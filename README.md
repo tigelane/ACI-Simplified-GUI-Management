@@ -1,8 +1,8 @@
 # ACI Simplified GUI Management
 Building simplified interfaces to complex systems
 
-![Production](https://github.com/tigelane/aci-appliance-server/workflows/Production/badge.svg)
-![Branch](https://github.com/tigelane/aci-appliance-server/workflows/Branch/badge.svg)
+![Production](https://github.com/tigelane/ACI-Simplified-GUI-Management/workflows/Production/badge.svg)
+![Branch](https://github.com/tigelane/ACI-Simplified-GUI-Management/workflows/Branch/badge.svg)
 
 # Building the Container
 Using the standard library argparse control the container
