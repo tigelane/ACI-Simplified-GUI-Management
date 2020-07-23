@@ -1,0 +1,49 @@
+{% for k,v in details.items() %}
+
+<form id="ui">
+{% if v.type == 'text' %}
+{{ k }}
+{% if v.regex %}
+<input type="text" name="{{ k }}" value="{{ v.default }}" pattern="{{ v.regex }}"><br>
+{% else %}
+<input type="text" name="{{ k }}" value="{{ v.default }}"><br>
+{% endif %}
+<hr>
+{% elif v.type == 'ip_cidr' %}
+{{ k }}
+<input type="text" name="{{ k }}" title="Enter a valid IP address with CIDR notation.  Example '127.0.0.1/32'" pattern="((^|\.)((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]?\d))){4}/(?:\d|[12]\d|3[01])$" value="{{ v.default }}"><br>
+<hr>
+{% elif v.type == 'checkbox' %}
+{{ k }}
+<input type="checkbox" name="{{ k }}" value="1"><br>
+<hr>
+{% elif v.type == 'password' %}
+{{ k }}
+<input type="password" name="{{ k }}"><br>
+<hr>
+{% elif v.type == 'hidden' %}
+<input hidden type="text" name="{{ k }}" value="{{ v.default }}"><br>
+{% elif v.type == 'dropdown' %}
+<label>{{ k }}
+<select name="{{ k }}" size="1">
+    {% for option in v.options %}
+    <option value="{{ option }}">{{ option }}</option>
+    {% endfor %}
+</select></label><br>
+<hr>
+{% elif v.type == 'paragraph' %}
+{{ v.default | safe }}
+{% endif %}
+{% endfor %}
+<input type="submit" id="btn_submit" value="Submit">
+</form>
+
+<script>
+    $( "#ui" ).submit(function( event ) {
+        event.preventDefault();
+        $("#btn_submit").attr("disabled", true);
+        $("#btn_submit").attr("value", "Loading...");
+        $("#script_output").load("/run_script/{{ script }}", $("#ui").serializeArray());
+    });
+</script>
+

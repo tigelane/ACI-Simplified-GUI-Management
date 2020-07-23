@@ -1,0 +1,21 @@
+name: Production
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  BuildandRun:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Build the docker image
+      run: docker build . --file Dockerfile --no-cache --tag devnet-create-2020:production
+
+    - name: Stop the container
+      run: ./check_container.sh devnet_create_2020_production
+
+    - name: Startup the test container
+      run: docker run --rm --name devnet_create_2020_production -dp 80:5000 -d devnet-create-2020:production

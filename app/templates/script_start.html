@@ -1,0 +1,19 @@
+<script>
+    $( function() {
+      $( ".widget input[type=submit], .widget a, .widget button" ).button();
+      $( "button, input, a" ).click( function( event ) {
+        event.preventDefault();
+        $("#script_output").load(event.currentTarget.href)
+      } );
+    } );
+</script>
+<div>
+<h2>Description:</h2><br>
+{{ script_details['description'] | safe }}
+</div>
+<br>
+<div>
+<a class="ui-button ui-widget ui-corner-all" id="start_button" href="/run_script/{{ script_details['id'] }}">Start Script</a>
+
+
+

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/jquery-ui-1.12.1.custom/jquery-ui.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/base.css') }}">
+
+  <script src="{{ url_for('static', filename='styles/jquery-ui-1.12.1.custom/external/jquery/jquery.js') }}"></script>
+  <script src="{{ url_for('static', filename='styles/jquery-ui-1.12.1.custom/jquery-ui.min.js') }}"></script>
+  <script src=""></script>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<div class="header">
+  &nbsp;
+    <img src="{{ url_for('static', filename='images/Logo+orngwhite.png') }}">&nbsp;&nbsp;&nbsp;<p>DevNet Create 2020</p> >
+    
+</div>
+
+<nav>
+  <ul>
+<span class="fake-link" id="home">Home</span>
+<span class="fake-link" id="main-repo">Main Repo</span>
+<span class="fake-link" id="aci-legacy-tenant-repo">ACI Legacy Tenant Repo</span>
+<span class="fake-link" id="aci-appliance-repo">ACI Appliance Repo</span>
+</ul>
+</nav>
+
+
+<html>
+
+  <div class="row">
+    <div class="col-3 col-s-3 menu row scrolling">
+      <ul>
+        {% for script in scripts %}
+        <li id="{{script['id']}}">{{ script['name'] }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    
+    <div class="col-9 col-s-9">
+      <div>
+          <h1 id="script_title">Welcome</h1>
+          <hr>
+      </div>
+      <div class="output scrolling" id="script_output">
+
+      </div>
+  </div>
+
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="footer"> 
+  <center><img src="{{ url_for('static', filename='images/Logo+orngwhite.png') }}"></center> 
+  <center><a href="https://ignw.io" target="_blank">IGNW</a> <a href="https://goo.gl/maps/bsQB3aMX1KU6QPyv6" target="_blank">5550 SW MACADAM AVE. SUITE 320, PORTLAND, OR, 97239</a> <a href="mailto:info@ignw.io">INFO@IGNW.IO</a></center> 
+</div>
+
+<script>
+    $("li").click(function() {
+      $("#script_title").text($(this).text());
+      $("#script_output").load("script/" + $(this).data('data_id'));
+      //$("#script_output").text("some updated text " + $(this).text() + ": " + $(this).data('data_id'))
+    });
+
+    {% for script in scripts %}
+    $("#{{ script['id'] }}").data('data_id', "{{ script['id'] }}" )
+    {% endfor %}
+
+    $(document).ready(function(){
+      $('#script_output').load("welcome")
+    })
+
+    $("#home").click(function() {
+      $("#script_title").text("Welcome");
+      $("#script_output").load("welcome");
+    })
+
+    $("#main-repo").click(function() {
+      window.open("https://github.com/IGNW/devnet-create-2020", "_blank");
+    })
+
+    $("#aci-legacy-tenant-repo").click(function() {
+      window.open("https://github.com/IGNW/dc_2020_aci_legacy_tenant", "_blank");
+    })
+
+    $("#aci-appliance-repo").click(function() {
+      window.open("https://github.com/IGNW/dc_2020_aci_appliance_server", "_blank");
+    })
+</script>
+
+</body>
+</div>
+
+</html>

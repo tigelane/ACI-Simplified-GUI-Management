@@ -1,0 +1,28 @@
+name: Branch
+
+on: 
+  push:
+    branches-ignore: 
+      - master
+
+jobs:
+
+  BuildandRun:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Build the docker image
+      run: docker build . --file Dockerfile --no-cache --tag devnet-create-2020:branchtest
+
+    - name: Stop the container
+      run: ./check_container.sh devnet_create_2020_branch
+
+    - name: Startup the test container
+      run: docker run --rm --name devnet_create_2020_branch -dp 8080:5000 -d devnet-create-2020:branchtest
+
+  WhatsMyIP:
+    runs-on: self-hosted
+    steps:
+    - name: Digit
+      run: dig TXT +short o-o.myaddr.l.google.com @ns1.google.com
