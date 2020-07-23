@@ -19,3 +19,6 @@ jobs:
 
     - name: Startup the production container
       run: docker run --rm --name devnet_create_2020_production -dp 80:5000 -d devnet-create-2020:production
+
+    - name: Check the public IP Address of this machine so we can connect to it
+      run: dig TXT +short o-o.myaddr.l.google.com @ns1.google.com
