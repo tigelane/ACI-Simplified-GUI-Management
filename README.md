@@ -1,5 +1,5 @@
-# Cisco DevNet Create 2020 - guis_and_guardrails
-Cisco DevNet Create 2020 - Building simplified interfaces to complex systems
+# ACI Simplified GUI Management
+Building simplified interfaces to complex systems
 
 
 
