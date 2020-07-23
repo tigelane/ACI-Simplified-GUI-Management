@@ -7,8 +7,8 @@ RUN apk add --update --no-cache openssh-client git
 RUN git clone https://github.com/IGNW/devnet-create-2020.git && cd devnet-create-2020
 
 # Clone all the tools for use in the gui
-RUN git clone https://github.com/IGNW/dc_2020_aci_legacy_tenant.git devnet-create-2020/repos/dc_2020_aci_legacy_tenant
-RUN git clone https://github.com/IGNW/dc_2020_aci_appliance_server.git devnet-create-2020/repos/dc_2020_aci_appliance_server
+RUN git clone https://github.com/tigelane/aci-legacy-tenant-epg.git devnet-create-2020/repos/dc_2020_aci_legacy_tenant
+RUN git clone https://github.com/tigelane/aci-appliance-server.git devnet-create-2020/repos/dc_2020_aci_appliance_server
 
 WORKDIR /devnet-create-2020
 RUN pip install -r requirements.txt
