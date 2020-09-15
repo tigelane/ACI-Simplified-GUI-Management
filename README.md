@@ -29,3 +29,4 @@ The github module uses an OATH token.  You it does not support using github pass
 It may work with less, but these are the permissions it was tested with.
 
 [Github OATH Token Permissions](https://developer.github.com/v4/guides/forming-calls/#authenticating-with-graphql)
+
