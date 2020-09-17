@@ -273,8 +273,10 @@ class SourceControlMgmt():
             "repo_name": self.repo_name,
             "owner": self.repo_owner
         }
+        print (variables)
 
         response = self._gql_query(query=query, vars=variables)
+        print (response)
         self.github_repo_id = response['data']['repository']['id']
 
     def create_git_hub_pull_request(self, destination_branch=None, source_branch=None, title=None, body=None):
